@@ -1,4 +1,3 @@
-<img width="1080" height="5138" alt="demo" src="https://github.com/user-attachments/assets/32a26966-435e-4de5-bc12-b6546f2ec343" />
 # Canada Registry Finder
 
 Mobile-first Expo app for searching Canadian business registry information and producing a source-linked report. The app is set up for Android because Android allows free local testing with APKs; public Google Play distribution has a one-time developer registration fee, while iOS public distribution requires an Apple Developer Program membership.
