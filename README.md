@@ -169,5 +169,6 @@ Google Play lets you set the app price to free, but Google Play developer regist
 
 For a truly no-store-cost option, distribute the preview APK directly from your website or GitHub Releases and keep the app free. Users must allow installing apps from unknown sources on Android.
 
-<img width="1080" height="5138" alt="demo" src="https://github.com/user-attachments/assets/cc3e0087-6ddc-4e5e-8a46-7de8019a09ff" />
+<img width="1080" height="5138" alt="demo" src="https://github.com/user-attachments/assets/c7c29c99-76d8-41dc-855c-688bace83615" />
+
 
