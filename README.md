@@ -1,3 +1,4 @@
+<img width="1080" height="5138" alt="demo" src="https://github.com/user-attachments/assets/32a26966-435e-4de5-bc12-b6546f2ec343" />
 # Canada Registry Finder
 
 Mobile-first Expo app for searching Canadian business registry information and producing a source-linked report. The app is set up for Android because Android allows free local testing with APKs; public Google Play distribution has a one-time developer registration fee, while iOS public distribution requires an Apple Developer Program membership.
@@ -168,3 +169,6 @@ Google Play lets you set the app price to free, but Google Play developer regist
 6. Upload the `.aab`, test through internal testing, then promote to production.
 
 For a truly no-store-cost option, distribute the preview APK directly from your website or GitHub Releases and keep the app free. Users must allow installing apps from unknown sources on Android.
+
+<img width="1080" height="5138" alt="demo" src="https://github.com/user-attachments/assets/cc3e0087-6ddc-4e5e-8a46-7de8019a09ff" />
+
