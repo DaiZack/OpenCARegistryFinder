@@ -22,7 +22,7 @@ Canada does not provide one open, unauthenticated nationwide business registry A
 
 ## Configure Live APIs
 
-Create `.env` in the project root:
+The app runs with demo data by default. To use live registry APIs, create `.env` in the project root:
 
 ```sh
 EXPO_PUBLIC_CANADA_FEDERAL_API_BASE=https://your-federal-api-base
@@ -33,6 +33,70 @@ EXPO_PUBLIC_BC_REGISTRY_ACCOUNT_ID=your_bc_account_id
 ```
 
 The adapter layer is in `src/services/registrySearch.ts`. If your issued API paths differ, update `searchFederal` and `searchBritishColumbia` there.
+
+### How To Get Federal Corporation API Values
+
+Use these variables for Corporations Canada / ISED:
+
+```sh
+EXPO_PUBLIC_CANADA_FEDERAL_API_BASE=
+EXPO_PUBLIC_CANADA_FEDERAL_API_KEY=
+```
+
+Steps:
+
+1. Go to the ISED API Catalogue Federal Corporation API documentation: https://api.ised-isde.canada.ca/en/docs?api=corporations
+2. Create an account or log in.
+3. Subscribe to the Public Plan. The public documentation currently lists a 60 hits per minute limit.
+4. Copy the API subscription key issued by the API Catalogue.
+5. Set `EXPO_PUBLIC_CANADA_FEDERAL_API_KEY` to that subscription key.
+6. Set `EXPO_PUBLIC_CANADA_FEDERAL_API_BASE` to the base URL shown in the API Catalogue / OpenAPI specification for the Federal Corporation API.
+
+Corporations Canada notes that the Federal Corporation API provides real-time data for federal corporations and requires an existing corporation number or 9-digit business number for some endpoints. It does not cover provincially or territorially incorporated businesses.
+
+### How To Get BC Registry API Values
+
+Use these variables for BC Registry Search and Business Registry APIs:
+
+```sh
+EXPO_PUBLIC_BC_REGISTRY_API_BASE=
+EXPO_PUBLIC_BC_REGISTRY_API_KEY=
+EXPO_PUBLIC_BC_REGISTRY_ACCOUNT_ID=
+```
+
+BC base URLs:
+
+```sh
+# Sandbox
+EXPO_PUBLIC_BC_REGISTRY_API_BASE=https://sandbox.api.connect.gov.bc.ca
+
+# Production
+EXPO_PUBLIC_BC_REGISTRY_API_BASE=https://api.connect.gov.bc.ca
+```
+
+Steps:
+
+1. Review the BC API overview pages:
+   - Registry Search API: https://developer.api.bcregistry.gov.bc.ca/en-CA/products/rs/overview/
+   - Business Registry API: https://developer.api.bcregistry.gov.bc.ca/en-CA/products/br/overview/
+   - Account setup: https://developer.api.bcregistry.gov.bc.ca/en-CA/products/get-started/account-setup
+2. Create a BC Registries and Online Services account. BC API services are intended for Premium accounts with a supported payment method.
+3. For sandbox access, download and sign the API Terms of Use, then email `bcregistries@gov.bc.ca`.
+4. Use the subject `Request for Service BC Connect API sandbox keys`.
+5. Include your BC Registries account number, company account administrator name, and administrator email.
+6. After approval, your Account Administrator can find the API key in the BC Registries account dashboard under Account Information / Developer Tools.
+7. Set `EXPO_PUBLIC_BC_REGISTRY_API_KEY` to that gateway API key.
+8. Set `EXPO_PUBLIC_BC_REGISTRY_ACCOUNT_ID` to the BC Registries / Service BC Connect account number associated with the key.
+9. After sandbox testing, request production keys from `bcregistries@gov.bc.ca` with the subject `Request for Service BC Connect API Production keys`.
+
+BC documentation states that Registry Search and Business Registry API requests require both a BC Registries issued API key and an Account ID. Some BC registry transactions may have fees in production.
+
+### Open Source Safety Notes
+
+- Do not commit `.env`.
+- Do not put real API keys in `app.json`, screenshots, issues, or pull requests.
+- Expo `EXPO_PUBLIC_*` variables are embedded in client builds. For a public production app, put registry credentials behind your own backend proxy instead of shipping keys in the mobile app.
+- Keep demo data enabled for contributors who do not have government API credentials.
 
 ## Run Locally
 
